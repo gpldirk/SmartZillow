@@ -1,0 +1,46 @@
+extends layout
+
+block content
+  h3(style="padding-left:20px;") Search results for "#{query}": (click for more details) 
+  table(style="table-layout: fixed;")
+    for result in results
+      tr(class="search-result-panel", onclick="window.document.location='/detail?id=#{result.zpid}';", style="border-top: 1px solid #eaeaea; width: 800px;")
+          td(style="width: 400px; padding-left:20px; padding-top: 20px;")
+            if result.image_url == ""
+              img(src="/default.png", style="width: 250px; height: 200px")
+            else
+              img(src= result.image_url, onerror="this.src='/default.png'", style="width: 250px; height: 200px")
+          td(style="wdith: 400px; padding-left:20px; padding-top: 20px;")
+            if result.latitude && result.longitude
+              img(style="width: 250px; height: 200px" src="http://dev.virtualearth.net/REST/V1/Imagery/Map/Road/#{result.latitude}%2C#{result.longitude}/13?mapSize=200,200&format=png&pushpin=#{result.latitude},#{result.longitude};86;&key=AmmTP0lpbFI6x3P17wwfV8AXppOoTogSI7Uu4h2duecbW0pyvsFPoN9nL5lxOpSJ" alt="Bing Map of location")
+            else
+              img(src='/map.png', style="width: 250px; height: 200px")
+       
+
+
+          td(style="padding-left: 20px; width: 1000px")
+            table 
+
+              tr
+                p #{result.street_address}
+              tr
+                p #{result.city}, #{result.state} #{result.zipcode}
+
+
+              tr
+                if result.is_for_sale == false
+                  p(style="color: blue; font-family: Gotham,gotham,Verdana,sans-serif") Listing Price: $#{result.list_price}
+                else
+                  p(style="color: red; font-family: Gotham,gotham,Verdana,sans-serif") Not For Sale
+              tr
+                p #{result.property_type}
+              tr
+                p #{result.bedroom} bd | #{result.bathroom} ba | #{result.size} sqft
+
+              
+
+
+              
+    else
+      li Not results found.
+

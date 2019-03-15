@@ -1,0 +1,114 @@
+body {
+  padding: 50px;
+  font: 14px Gotham,gotham,Verdana,sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+
+#nav-search-box {
+  width: 130px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  background-position: 10px 10px; 
+  background-repeat: no-repeat;
+  padding: 9px 20px 9px 20px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+
+#nav-search-box:focus {
+    width: 100%;
+}
+
+
+#map {
+  width: 220px;
+  height: 410px;
+  position: relative;
+}
+
+.footer {
+	position: inherit;
+	bottom: 0;
+}
+
+
+#search #search_text {  
+   box-sizing: border-box;  
+}
+         
+      
+#search {
+    position: relative;
+    width: 500px;
+    margin: 0 auto;
+	  height: 42px;
+}
+
+
+#search_text{
+  border: none;
+  outline: none;
+  height: 42px;
+  padding-left: 13px;
+  border-radius: 42px;
+  font-weight: 500;  
+  font-family: "system-ui";  
+  width: 600px;
+  margin-left: -60px;
+  background-color: #00000010;
+}
+
+
+.glyphicon {
+  margin-right: 5px;
+} 
+
+
+/*-----         login          -----*/
+/*login form (put icon inside input field)*/
+.inner-addon {
+  position: relative;
+ }
+ 
+ /* style icon */
+.inner-addon .glyphicon {
+ position: absolute;
+ padding: 10px;
+ pointer-events: none;
+ }
+ 
+ /* align icon */
+.left-addon .glyphicon  { left:  0px;}
+.right-addon .glyphicon { right: 0px;}
+ 
+ /* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }
+
+
+.user {
+    margin-right:120px; 
+    margin-top: 40px; 
+    font-size:110%; 
+    background-color: #4285f4; 
+    color: white;
+    font-family: sans-serif;
+}
+
+#description {
+  white-space: pre-wrap;
+  font-size: 15px;
+  line-height: 1.5;;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  font-family: Gotham,gotham,Verdana,sans-serif;
+  color: #444;
+  -webkit-font-smoothing: antialiased;
+}

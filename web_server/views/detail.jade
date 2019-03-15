@@ -1,0 +1,98 @@
+extends layout
+
+block content
+  table
+    tr
+      td(colspan="2", style="100%")
+        div(style="float:left;")
+          if property.image_url == ""
+            img(src="/default.png", style="width:500px;")
+          else
+            img(src= property.image_url, onerror="this.src='/default.jpg'", style="width:100%;", onclick='window.open("http://www.zillow.com" + property.zpid)')
+      td(style="float:left; margin-left:20px;")
+          div(id="map")
+    tr
+      //- td(style="padding-left:50px; width:800px;")
+      td(colspan="2", style="100%;")
+        div(style="float:left;")
+        br  
+        table
+          tr
+            h2 #{property.street_address},
+            h3 #{property.city}, #{property.state} #{property.zipcode}
+          tr
+            h4 #{property.property_type} - #{property.bedroom} Bed / #{property.bathroom} Bath - #{property.size} sqft
+          tr
+      //- td(style="float:left; margin-left:100px;")
+      td(style="float:left; margin-left:40px;")
+        br
+        if property.is_for_sale == false
+          h4(style="color: green;") • For Sale
+          span.h3 $#{property.list_price}
+        else
+          h4(style="color: red;") Not For Sale
+        br
+        h4 Estimate value:
+        if property.predicted_change >= 0
+          span.h4(style="color: green;") $#{property.predicted_value} (+#{property.predicted_change}%)
+        else
+          span.h4(style="color: red;") $#{property.predicted_value} (#{property.predicted_change}%)
+
+    tr
+      //- td(style="padding-left: 50px; width: 600px;")
+      td(colspan="2", style="100%")
+        div(style="float:left;")
+          p(id="description")= property.description
+    tr
+      //- td(style="padding-left: 50px; width: 600px;")
+      td(colspan="2", style="100%")
+        div(style="float:left;")
+        b Facts
+        br 
+        br
+    tr
+      //- td(style="padding-left: 50px; width: 600px;")
+      td(colspan="2", style="100%")
+        div(style="float:left;")
+        table
+          for fact_group in property.facts
+            td(style="width: 30%;" valign="top")
+              ul(style="list-style-type:none")
+                for fact in fact_group
+                  if fact !== ''
+                    li= fact
+                  else
+                    br
+
+    tr
+      //- td(style="padding-left: 50px; width: 600px;")
+      td(colspan="2", style="100%")
+        div(style="float:left;")
+        b Additional Facts
+        br 
+    tr
+      //- td(style="padding-left: 50px; width: 600px;")
+      td(colspan="2", style="100%")
+        div(style="float:left;")
+        table
+          for additional_fact_group in property.additional_facts
+            td(style="width: 30%;" valign="top")
+              ul
+                for additional_fact in additional_fact_group
+                  li= additional_fact
+
+  script.
+    function loadMapScenario() {
+        var map = new Microsoft.Maps.Map(document.getElementById('map'), {
+            credentials: 'AqO1MgaLkk7DdoBd-2lajxSIhDXs5aMzE_xLzPU-Lmmjh0rHy2Z6NQeb_iwhYBVx',
+            center: new Microsoft.Maps.Location(#{property.latitude}, #{property.longitude}),
+            mapTypeId: Microsoft.Maps.MapTypeId.road,
+            zoom: 13
+        });
+
+        var pushpin = new Microsoft.Maps.Pushpin(map.getCenter(), { icon: 'https://www.bingmapsportal.com/Content/images/poi_custom.png',
+            anchor: new Microsoft.Maps.Point(12, 39) });
+
+        map.entities.push(pushpin);  
+    }
+  script(type='text/javascript' src='http://www.bing.com/api/maps/mapcontrol?branch=release&callback=loadMapScenario' async defer)

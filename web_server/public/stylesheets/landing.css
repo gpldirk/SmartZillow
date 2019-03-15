@@ -1,0 +1,221 @@
+
+html,
+body {
+padding: 0;
+margin: 0;
+}
+
+body a {
+outline: none;
+transition: 0.5s all;
+-webkit-transition: 0.5s all;
+-moz-transition: 0.5s all;
+-o-transition: 0.5s all;
+-ms-transition: 0.5s all;
+text-decoration: none;
+}
+body a:hover {
+text-decoration: none;
+}
+body a:focus,
+a:hover {
+text-decoration: none;
+}
+
+span{
+font-family: 'Open Sans', sans-serif;
+transition:0.5s all;
+-webkit-transition:0.5s all;
+-moz-transition:0.5s all;
+-o-transition:0.5s all;
+-ms-transition:0.5s all;
+letter-spacing: 1px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+margin: 0;
+padding: 0;
+font-family: 'Fahkwang', sans-serif;
+letter-spacing: 1px;
+}
+p {
+margin: 0;
+padding: 0;
+letter-spacing: 1px;
+font-family: 'Open Sans', sans-serif;
+}
+
+
+
+/* headder */
+.banner-two-img {
+    padding: 1.5em 4em;
+}
+.logo h1 a {
+    font-weight: 400;
+    font-size: 35px;
+    letter-spacing: 1px;
+    color: #fff;
+	display:block;
+	float:left;
+}
+
+.banner-right-txt {
+    padding-top: 15em;
+}
+    
+.banner-right-txt h4 {
+    color: #fff;
+    font-size: 3em;
+    font-weight: 700;
+    text-transform: capitalize;
+    letter-spacing: 2px;
+    /* color: black; */
+    text-shadow: 3px 1px 11px black;
+}
+
+/* social-icons */
+.social-icons {
+    float: right;
+    padding-right: 34px;
+}
+.social-icons ul li a,.team-icons ul li a{
+    width: 35px;
+    text-align: center;
+    height: 35px;
+    line-height: 36px;
+    border-radius: 50px;
+    margin: 0px 2px;
+    display: block;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    transition: 0.5s all;
+    -moz-transition: 0.5s all;
+}
+.social-icons ul li a.facebook,.team-icons ul li a.facebook {background:#0078d7;}
+.social-icons ul li a.twitter,.team-icons ul li a.twitter {background:#1da1f2;}
+.social-icons ul li a.rss,.team-icons ul li a.rss{background:#f26522;}
+.social-icons ul li a span,.team-icons ul li a span{
+  color: #fff;
+  font-size:15px;
+  transition: 0.5s all;
+  -webkit-transition: 0.5s all;
+  transition: 0.5s all;
+  -moz-transition: 0.5s all;
+}
+
+.social-icons ul li{
+    display: inline-block;
+}
+/* view button */
+.view-buttn a {
+    font-size: 15px;
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: capitalize;
+    display: inline-block;
+    letter-spacing: 1px;
+    outline: none;
+    font-weight: 400;
+    border-radius: 0px;
+    background-color:#41ad6c;
+    padding: 8px 15px;
+    border: 2px solid #41ad6c;
+}
+
+
+/* footer */
+
+footer {
+    position: relative;
+    top: 150px;
+}
+.bottem-wthree-footer {
+    text-align: center; 
+}
+
+.bottem-wthree-footer p {
+    margin-bottom: 15%;
+    font-size: 14px;
+    color: #fff;
+    letter-spacing: 2px;
+}
+.bottem-wthree-footer p a {
+    color: #ff5e00;
+    font-size: 14px;
+}
+.bottem-wthree-footer p a:hover{color: #fff;}
+
+/* picture slide   */
+.slideshow { 
+position: fixed;
+width: 100%;
+height: 100%;
+top: 0;
+left: 0;
+z-index: -1;
+list-style: none;
+margin: 0;
+padding: 0;
+background-color: #000;
+}
+
+.slideshow li { 
+width: 100%;
+height: 100%;
+position: absolute;
+top: 0;
+left: 0;
+background-size: cover;
+background-position: 50% 50%;
+background-repeat: no-repeat;
+opacity: 0;
+z-index: 0;
+animation: imageAnimation 50s linear infinite; 
+}
+
+.slideshow li:nth-child(1) { 
+background-image: url(../b3.jpg) 
+}
+.slideshow li:nth-child(2) { 
+background-image: url(../b5.jpg);
+animation-delay: 10s; 
+}
+.slideshow li:nth-child(3) { 
+background-image: url(../b1.jpg);
+animation-delay: 20s; 
+}
+.slideshow li:nth-child(4) { 
+background-image: url(../b2.jpg);
+animation-delay: 30s; 
+}
+.slideshow li:nth-child(5) { 
+background-image: url(../b4.jpg);
+animation-delay: 40s; 
+}
+
+@keyframes imageAnimation { 
+0% { 
+opacity: 0; 
+animation-timing-function: ease-in;
+}
+10% {
+opacity: 1;
+animation-timing-function: ease-out;
+}
+20% {
+opacity: 1
+}
+30% {
+opacity: 0
+}
+}
+
+/* Older browser support - .no-cssanimations class added by modernizr */
+.no-cssanimations .slideshow li {
+opacity: 1;
+}
