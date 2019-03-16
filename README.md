@@ -2,8 +2,11 @@
 
 
 •	Designed a real estate search and value prediction system using Service-Oriented Architecture (SOA).
+
 •	Built the frontend server with Node.js, Express, Bootstrap and Bing Map API.
+
 •	Implemented a distributed real estate web scraping system to collect real-time property information using MongoDB and               RabbitMQ.
+
 •	Designed and developed a real estate value online prediction system with TensorFlow and Linear Regression.
 
 
@@ -12,7 +15,7 @@
 2. The entire system was designed using Service Oriented Architecture by decoupling all subsystems. Each subsystem of the architecture is independent and isolated, which can be tested and improved individually. In the project, web server handles web rendering work only, which is built with Node.js and Express. Web server requests backend server for content through RPC. The backend server is responsible for all business logic work including property search in MongoDB and getting value estimation from Machine Learning serving system. In order to collect property information, a data fetching system using web scraping and Zillow public API based on RabbitMQ is implemented. At last, some typical features are selected to train a property value model with TensorFlow and deploy a machine learning serving system. 
 
 
-
+![project architecture overview](https://github.com/gpldirk/SmartZillow/blob/master/project%20modules.png)
 
 
 ### Links of the project
