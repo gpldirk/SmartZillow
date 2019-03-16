@@ -1,27 +1,14 @@
-# YelpCamp
+# SmartZillow
 
-### The website is a campground search website. After you give the ticker of a stock, it will show you most of the info about the stock, includes current price, last price, indicator charts, historical charts and news
+1. SmartZillow is a real estate search and property value estimation system. The system collects property information available on Zillow.com, and provides a value estimation for a specific property. The system consists of four major parts: a Node.js web server, a backend server, a data fetching system and a machine learning system. The web server is for property search and rendering details. The backend server is serving all property content requested by web server through RPC. Data fetching system is used for collecting and processing property data asynchronously. The machine learning system is using linear regression to train and serve a model for property value estimation.
 
-1. The top part of the web is the searching board. It implements the functionality of autocomplete when you are typing. When you click the "get quote" button, it will retrieve the info from the backend. If you click on the "clear" button, it will clear all the current info.
+2. The entire system was designed using Service Oriented Architecture by decoupling all subsystems. Each subsystem of the architecture is independent and isolated, which can be tested and improved individually. In the project, web server handles web rendering work only, which is built with Node.js and Express. Web server requests backend server for content through RPC. The backend server is responsible for all business logic work including property search in MongoDB and getting value estimation from Machine Learning serving system. In order to collect property information, a data fetching system using web scraping and Zillow public API based on RabbitMQ is implemented. At last, some typical features are selected to train a property value model with TensorFlow and deploy a machine learning serving system. 
 
-2. The bottom part has two panel. The left panel is the favorite board, which shows all your favorite stocks. These favorite stocks are stored in the local storage. While the right panel is the info board. It has 3 tabs: current stock, historical stock and news. 
 
-### The wesite used the following technologies
 
-1. Angular 4 as the front-end framework
-
-2. Bootstrap as the CSS framework
-
-3. Node.js as the back-end language
-
-4. Used packages of back-end: express, body-parser, xml2js, moment and Angular Material
-
-5. Used APIs of Alpha Vantage and Facebook
-
-6. Deployed to AWS
 
 ### Links of the project
 
-The webpage address: http://zcstock.us-east-1.elasticbeanstalk.com/
+The webpage address: 
 
 The youtube demo address: https://www.youtube.com/watch?v=mmd_ZYf0c8o&t=15s
