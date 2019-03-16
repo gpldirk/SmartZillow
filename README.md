@@ -19,6 +19,7 @@
 2. The entire system was designed using Service Oriented Architecture by decoupling all subsystems. Each subsystem of the architecture is independent and isolated, which can be tested and improved individually. In the project, web server handles web rendering work only, which is built with Node.js and Express. Web server requests backend server for content through RPC. The backend server is responsible for all business logic work including property search in MongoDB and getting value estimation from Machine Learning serving system. In order to collect property information, a data fetching system using web scraping and Zillow public API based on RabbitMQ is implemented. At last, some typical features are selected to train a property value model with TensorFlow and deploy a machine learning serving system. 
 
 
+
 The webpage address: 
 
 The youtube demo address: 
