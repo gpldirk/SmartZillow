@@ -12,7 +12,7 @@ block content
               img(src= result.image_url, onerror="this.src='/default.png'", style="width: 250px; height: 200px")
           td(style="wdith: 400px; padding-left:20px; padding-top: 20px;")
             if result.latitude && result.longitude
-              img(style="width: 250px; height: 200px" src="http://dev.virtualearth.net/REST/V1/Imagery/Map/Road/#{result.latitude}%2C#{result.longitude}/13?mapSize=200,200&format=png&pushpin=#{result.latitude},#{result.longitude};86;&key=AmmTP0lpbFI6x3P17wwfV8AXppOoTogSI7Uu4h2duecbW0pyvsFPoN9nL5lxOpSJ" alt="Bing Map of location")
+              img(style="width: 250px; height: 200px" src="http://dev.virtualearth.net/REST/V1/Imagery/Map/Road/#{result.latitude}%2C#{result.longitude}/13?mapSize=200,200&format=png&pushpin=#{result.latitude},#{result.longitude};86;&key=BingMapAPIKey" alt="Bing Map of location")
             else
               img(src='/map.png', style="width: 250px; height: 200px")
        
